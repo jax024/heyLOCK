@@ -58,11 +58,27 @@ class VideoPreviewActivity : AppCompatActivity(){
             val mediaController = MediaController(this)
             mediaController.setAnchorView(binding!!.videoView)
 
+
             // Set MediaController for VideoView
             binding!!. videoView.setMediaController(mediaController)
 
+
             // Start playing the video
             binding!!.videoView.start()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         setViewClicks()
@@ -75,6 +91,164 @@ class VideoPreviewActivity : AppCompatActivity(){
         binding!!.ivDelete.setOnClickListener { displayDeleteDialogue() }
 
     }
+   private fun audio() {
+/*-------ada-per---------
+       import android.content.Context
+               import android.view.LayoutInflater
+               import android.view.View
+               import android.view.ViewGroup
+               import android.widget.AdapterView
+               import android.widget.ArrayAdapter
+               import android.widget.TextView
+               import androidx.fragment.app.FragmentActivity
+
+       class AudioAdapter(
+           context: Context,
+           resource: Int,
+           private val audioList: List<String>
+       ) : ArrayAdapter<String>(context, resource, audioList), View.OnClickListener {
+
+           override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+               val itemView = convertView ?: LayoutInflater.from(context)
+                   .inflate(R.layout.audio_item, parent, false)
+
+               val audioNameTextView: TextView = itemView.findViewById(R.id.audioNameTextView)
+
+               val audioName = audioList[position]
+               audioNameTextView.text = audioName
+
+               // Set OnClickListener for the item
+               itemView.setOnClickListener {
+                   // Show the AudioPlayerFragment when the item is clicked
+                   val activity = context as FragmentActivity
+                   val audioPlayerFragment = AudioPlayerFragment()
+                   audioPlayerFragment.show(activity.supportFragmentManager, audioPlayerFragment.tag)
+               }
+
+               return itemView
+           }
+
+           override fun onClick(v: View?) {
+               // Handle click event if needed
+           }
+       }*/
+
+
+/*---fragment-----
+
+
+       import android.media.MediaPlayer
+               import android.os.Bundle
+               import android.os.Handler
+               import android.view.LayoutInflater
+               import android.view.View
+               import android.view.ViewGroup
+               import android.widget.SeekBar
+               import androidx.fragment.app.DialogFragment
+               import kotlinx.android.synthetic.main.fragment_audio_player.*
+
+       class AudioPlayerFragment : DialogFragment() {
+
+           private lateinit var mediaPlayer: MediaPlayer
+           private lateinit var audioUrl: String
+           private var isPlaying = false
+           private var durationHandler = Handler()
+
+           override fun onCreateView(
+               inflater: LayoutInflater,
+               container: ViewGroup?,
+               savedInstanceState: Bundle?
+           ): View? {
+               return inflater.inflate(R.layout.fragment_audio_player, container, false)
+           }
+
+           override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+               super.onViewCreated(view, savedInstanceState)
+
+               audioUrl = "your_audio_url_here"
+
+               // Initialize MediaPlayer
+               mediaPlayer = MediaPlayer()
+
+               // Set audio source
+               mediaPlayer.setDataSource(audioUrl)
+               mediaPlayer.prepare()
+
+               // Set audio name
+               audioNameTextView.text = "Audio Name"
+
+               // Set duration text
+               durationTextView.text = formatTime(mediaPlayer.duration)
+
+               // Set up seekbar
+               seekBar.max = mediaPlayer.duration
+               seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                   override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                       if (fromUser) {
+                           mediaPlayer.seekTo(progress)
+                       }
+                   }
+
+                   override fun onStartTrackingTouch(seekBar: SeekBar) {
+                       // No implementation needed
+                   }
+
+                   override fun onStopTrackingTouch(seekBar: SeekBar) {
+                       // No implementation needed
+                   }
+               })
+
+               // Update seekbar and duration text
+               durationHandler.postDelayed(updateSeekBarTime, 100)
+
+               // Set up play/pause button
+               playPauseButton.setOnClickListener {
+                   if (isPlaying) {
+                       mediaPlayer.pause()
+                       isPlaying = false
+                       playPauseButton.setImageResource(android.R.drawable.ic_media_play)
+                   } else {
+                       mediaPlayer.start()
+                       isPlaying = true
+                       playPauseButton.setImageResource(android.R.drawable.ic_media_pause)
+                   }
+               }
+
+               // Set up stop button
+               stopButton.setOnClickListener {
+                   mediaPlayer.stop()
+                   mediaPlayer.prepare()
+                   isPlaying = false
+                   playPauseButton.setImageResource(android.R.drawable.ic_media_play)
+                   seekBar.progress = 0
+               }
+           }
+
+           private val updateSeekBarTime = object : Runnable {
+               override fun run() {
+                   seekBar.progress = mediaPlayer.currentPosition
+                   durationTextView.text = formatTime(mediaPlayer.currentPosition)
+                   durationHandler.postDelayed(this, 100)
+               }
+           }
+
+           private fun formatTime(ms: Int): String {
+               val seconds = ms / 1000
+               val minutes = seconds / 60
+               val remainingSeconds = seconds % 60
+               return String.format("%02d:%02d", minutes, remainingSeconds)
+           }
+
+           override fun onDestroy() {
+               super.onDestroy()
+               mediaPlayer.release()
+               durationHandler.removeCallbacks(updateSeekBarTime)
+           }
+       }*/
+
+
+
+   }
 
 
     @Deprecated("Deprecated in Java")
