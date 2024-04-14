@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10pxh"
+    android:background="@drawable/bg_dialog_rounded"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/_10pxh">
+
+        <ImageView
+            android:layout_width="@dimen/_100pxh"
+            android:layout_height="@dimen/_100pxh"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/_10pxh"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_top_forgot_password" />
+
+        <TextView
+            style="@style/dialogTitleTextStyle"
+            android:text="Forgot Password ?"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tvSecurityQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_15pxh"
+            android:fontFamily="@font/circular_std_medium"
+            android:gravity="center_vertical"
+            android:text="Please enter the answers to your security questions to change your password"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sp" />
+
+        <TextView
+           android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:textColor="@color/black"
+            android:fontFamily="@font/circular_std"
+            android:textSize="@dimen/_15sp"
+            android:text="Enter security Question"
+            android:layout_marginTop="@dimen/_10pxh" />
+
+        <EditText
+            android:id="@+id/editAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_12pxh"
+            android:background="@drawable/bg_edittext_rounded"
+            android:fontFamily="@font/circular_std_book"
+            android:gravity="top"
+            android:imeOptions="actionDone"
+            android:hint="Enter answer"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:padding="@dimen/_15pxh"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_black_901"
+            android:textSize="@dimen/_14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/txtDone"
+            style="@style/dialogBottomDoneButtonStyle"
+            android:layout_marginTop="@dimen/_10pxh"
+            android:text="continue"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtCancel"
+            style="@style/dialogBottomCancelTextStyle"
+            android:text="cancel"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
